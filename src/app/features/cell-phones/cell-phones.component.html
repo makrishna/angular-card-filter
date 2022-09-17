@@ -1,0 +1,5 @@
+<div class="d-flex align-items-center justify-content-start flex-wrap" *ngIf="cellphones && cellphones.length">
+    <div *ngFor="let item of cellphones">
+        <app-image-card [info]="item"></app-image-card>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.main-area {
+    width: 100%;
+    display: flex;
+}
+
+::host .card {
+    margin-left: 0!important;
+    border:none;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.23);
+}

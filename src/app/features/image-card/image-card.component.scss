@@ -1,0 +1,18 @@
+.img-card {
+    height: 250px;
+    width: 250px;
+    display: block;
+    object-fit: cover;
+}
+
+.info-text {
+    font-size: 22px;
+    text-align: center;
+    text-transform: initial;
+    padding-top: 12px;
+}
+
+.card {
+    border:none!important;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.15);
+}
