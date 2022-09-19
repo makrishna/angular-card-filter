@@ -56,6 +56,7 @@ export class MainAreaComponent implements OnInit {
   }
 
   onRouterActivate($event: any) {
+    this.routerActivated = true;
     switch ($event.constructor) {
       case ButterfliesComponent: {
         this.butterfliesComp = $event;
