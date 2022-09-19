@@ -14,14 +14,7 @@ export class CarsComponent implements OnInit {
   constructor(private appService:AppService) { }
 
   ngOnInit(): void {
-    this.appService.$searchQueryChange.subscribe((value:string) => {
-      if(!value.length) {
-        this.cars = this.carsMap.get("initialData");
-      } else {
-        this.cars = this.carsMap.get("initialData");
-        this.cars = <any>this.cars.filter((el:any) => el.text.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
-      }
-    })
+
   }
 
 }

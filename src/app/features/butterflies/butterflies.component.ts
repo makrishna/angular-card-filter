@@ -14,14 +14,7 @@ export class ButterfliesComponent implements OnInit {
   constructor(private appService:AppService) { }
 
   ngOnInit(): void {
-    this.appService.$searchQueryChange.subscribe((value:string) => {
-      if(!value.length) {
-        this.butterflies = this.butterFliesMap.get("initialData");
-      } else {
-        this.butterflies = this.butterFliesMap.get("initialData");
-        this.butterflies = <any>this.butterflies.filter((el:any) => el.text.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
-      }
-    })
+
   }
 
 }

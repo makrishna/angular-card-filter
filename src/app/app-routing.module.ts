@@ -7,13 +7,8 @@ const routes: Routes = [
   {
     path: "", component: HomeComponent,
     children: [
-      { path: "cards", loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule) }
+      { path: "", loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule) }
     ]
-  },
-  {
-    path:"",
-    redirectTo:"cards",
-    pathMatch:"full"
   }
 ];
 

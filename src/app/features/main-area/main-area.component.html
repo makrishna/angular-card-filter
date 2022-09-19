@@ -1,1 +1,12 @@
-<router-outlet (activate)="onRouterActivate($event)"></router-outlet>
+
+<div class="d-flex align-items-center justify-content-start flex-wrap" *ngIf="!routerActivated">
+    <div class="d-flex align-items-center justify-content-start flex-wrap" *ngIf="wholeData && wholeData.length">
+        <div *ngFor="let item of wholeData">
+            <app-image-card [info]="item"></app-image-card>
+        </div>
+    </div>
+    <div *ngIf="!wholeData.length">
+        No search results found
+    </div>
+</div>
+<router-outlet [hidden]="!routerActivated" (activate)="onRouterActivate($event)"></router-outlet>

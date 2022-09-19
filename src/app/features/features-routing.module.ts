@@ -13,6 +13,7 @@ const routes: Routes = [
         { path: "cellphones", component: CellPhonesComponent },
         { path: "office", component: OfficeComponent }
     ] },
+    { path: "butterfly", component: ButterfliesComponent }
 ];
 
 @NgModule({

@@ -22,8 +22,8 @@ export class ImageCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.appService.$rangeValueChange.subscribe((val: any) => {
-      this.image.nativeElement.style.opacity = val/10;
-      this.appService.opactyValue = val/10;
+      this.image.nativeElement.style.opacity = val;
+      this.appService.opactyValue = val;
     })
   }
 

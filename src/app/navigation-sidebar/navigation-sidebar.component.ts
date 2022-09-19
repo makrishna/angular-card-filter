@@ -11,10 +11,10 @@ export class NavigationSidebarComponent implements OnInit {
   constructor(public appService:AppService) { }
 
   menuItems = [
-    { name: "Butterfly", active: false, link: "/cards/butterfly" },
-    { name: "Cars", active: false, link: "/cards/cars" },
-    { name: "Mobile Phones", active: false, link: "/cards/cellphones" },
-    { name: "Office", active: false, link: "/cards/office" }
+    { name: "Butterfly", active: false, link: "/butterfly" },
+    { name: "Cars", active: false, link: "/cars" },
+    { name: "Mobile Phones", active: false, link: "/cellphones" },
+    { name: "Office", active: false, link: "/office" }
   ];
 
   ngOnInit(): void {

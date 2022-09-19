@@ -14,14 +14,7 @@ export class OfficeComponent implements OnInit {
   constructor(private appService:AppService) { }
 
   ngOnInit(): void {
-    this.appService.$searchQueryChange.subscribe((value:string) => {
-      if(!value.length) {
-        this.offices = this.officesMap.get("initialData");
-      } else {
-        this.offices = this.officesMap.get("initialData");
-        this.offices = <any>this.offices.filter((el:any) => el.text.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
-      }
-    })
+
   }
 
 }

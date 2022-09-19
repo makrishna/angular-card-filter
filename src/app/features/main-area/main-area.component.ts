@@ -4,6 +4,8 @@ import { ButterfliesComponent } from '../butterflies/butterflies.component';
 import { CarsComponent } from '../cars/cars.component';
 import { CellPhonesComponent } from '../cell-phones/cell-phones.component';
 import { OfficeComponent } from '../office/office.component';
+import { AppService } from 'src/app/app.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,17 +17,23 @@ import { OfficeComponent } from '../office/office.component';
 export class MainAreaComponent implements OnInit {
 
   data: any;
+  wholeData:any = [];
+  wholeDataMap = new Map();
   butterfliesComp: ButterfliesComponent = <any>{};
   carsComp: CarsComponent = <any>{};
   cellPhonesComp: CellPhonesComponent = <any>{};
   officeComp: OfficeComponent = <any>{};
 
-  constructor(private httpClient: HttpClient) { }
+  routerActivated = true;
+
+  constructor(private httpClient: HttpClient, private appService:AppService, private router:Router) { }
 
   ngOnInit(): void {
     this.httpClient.get("/assets/data/data.json").subscribe((data: any) => {
       console.log(data);
       this.data = data;
+      this.wholeData = [...data.Butterfly,...data.Cars,...data.Cellphone,...data.Office];
+      this.wholeDataMap.set("initialData", this.wholeData);
       this.butterfliesComp.butterflies = data.Butterfly;
       this.butterfliesComp.butterFliesMap.set("initialData", data.Butterfly);
       this.carsComp.cars = data.Cars;
@@ -34,6 +42,16 @@ export class MainAreaComponent implements OnInit {
       this.cellPhonesComp.cellphonesMap.set("initialData", data.Cellphone);
       this.officeComp.offices = data.Office;
       this.officeComp.officesMap.set("initialData", data.Office);
+    })
+    this.appService.$searchQueryChange.subscribe((value:string) => {
+      this.router.navigate(["/"]);
+      if(value.length) {
+        this.routerActivated = false;
+        this.wholeData = this.wholeDataMap.get("initialData");
+        this.wholeData = <any>this.wholeData.filter((el:any) => el.text.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
+      } else {
+        this.wholeData = this.wholeDataMap.get("initialData");
+      }
     })
   }
 

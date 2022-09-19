@@ -14,14 +14,7 @@ export class CellPhonesComponent implements OnInit {
   constructor(private appService:AppService) { }
 
   ngOnInit(): void {
-    this.appService.$searchQueryChange.subscribe((value:string) => {
-      if(!value.length) {
-        this.cellphones = this.cellphonesMap.get("initialData");
-      } else {
-        this.cellphones = this.cellphonesMap.get("initialData");
-        this.cellphones = <any>this.cellphones.filter((el:any) => el.text.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
-      }
-    })
+
   }
 
 }
