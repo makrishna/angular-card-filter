@@ -19,10 +19,10 @@ export class MainAreaComponent implements OnInit {
   data: any;
   wholeData:any = [];
   wholeDataMap = new Map();
-  butterfliesComp: ButterfliesComponent = <any>{};
-  carsComp: CarsComponent = <any>{};
-  cellPhonesComp: CellPhonesComponent = <any>{};
-  officeComp: OfficeComponent = <any>{};
+  butterfliesComp: ButterfliesComponent = <ButterfliesComponent>{};
+  carsComp: CarsComponent = <CarsComponent>{};
+  cellPhonesComp: CellPhonesComponent = <CellPhonesComponent>{};
+  officeComp: OfficeComponent = <OfficeComponent>{};
 
   routerActivated = true;
 
@@ -32,17 +32,27 @@ export class MainAreaComponent implements OnInit {
     this.httpClient.get("/assets/data/data.json").subscribe((data: any) => {
       console.log(data);
       this.data = data;
-      this.wholeData = [...data.Butterfly,...data.Cars,...data.Cellphone,...data.Office];
-      this.wholeDataMap.set("initialData", this.wholeData);
-      this.butterfliesComp.butterflies = data.Butterfly;
-      this.butterfliesComp.butterFliesMap.set("initialData", data.Butterfly);
-      this.carsComp.cars = data.Cars;
-      this.carsComp.carsMap.set("initialData", data.Cars);
-      this.cellPhonesComp.cellphones = data.Cellphone;
-      this.cellPhonesComp.cellphonesMap.set("initialData", data.Cellphone);
-      this.officeComp.offices = data.Office;
-      this.officeComp.officesMap.set("initialData", data.Office);
+      //Initially navigating to butterflies as a landing page
+      this.router.navigate(["/butterfly"]);
+
+      //setting the initial datas individually to all the four categories
+      try {
+        this.wholeData = [...data.Butterfly,...data.Cars,...data.Cellphone,...data.Office];
+        this.wholeDataMap.set("initialData", this.wholeData);
+        this.butterfliesComp.butterflies = data.Butterfly;
+        this.butterfliesComp.butterFliesMap.set("initialData", data.Butterfly);
+        this.carsComp.cars = data.Cars;
+        this.carsComp.carsMap.set("initialData", data.Cars);
+        this.cellPhonesComp.cellphones = data.Cellphone;
+        this.cellPhonesComp.cellphonesMap.set("initialData", data.Cellphone);
+        this.officeComp.offices = data.Office;
+        this.officeComp.officesMap.set("initialData", data.Office);
+      } catch (e) {
+
+      }
     })
+
+    //subscribing to the search event happening from header
     this.appService.$searchQueryChange.subscribe((value:string) => {
       this.router.navigate(["/"]);
       if(value.length) {
@@ -57,6 +67,7 @@ export class MainAreaComponent implements OnInit {
 
   onRouterActivate($event: any) {
     this.routerActivated = true;
+    //storing the component instances in the variables and populating.
     switch ($event.constructor) {
       case ButterfliesComponent: {
         this.butterfliesComp = $event;
