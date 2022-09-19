@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
+## Install Packages
+
+Run `npm install` to install the packages which are used in this project.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -21,6 +25,14 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Features
+
+Routing through categories and showing the images accordingly.
+
+Global search does the filtering of images irrespective of the category.
+
+Opacity feature enables user to change the opacity of visible images.
 
 ## Further help
 
