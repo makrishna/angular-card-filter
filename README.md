@@ -40,4 +40,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 <img src='Screenshot from 2022-09-19 18-22-24.png'/>
 
-![Screenshot](Screenshot from 2022-09-19 18-22-36.png)
+<img src='Screenshot from 2022-09-19 18-22-36.png'/>
