@@ -37,3 +37,7 @@ Opacity feature enables user to change the opacity of visible images.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+![Screenshot](Screenshot from 2022-09-19 18-22-24.png)
+
+![Screenshot](Screenshot from 2022-09-19 18-22-36.png)
